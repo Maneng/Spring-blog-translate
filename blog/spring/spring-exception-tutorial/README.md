@@ -1,7 +1,7 @@
-# spring 异常指导教程
+# spring 博客翻译
 
 ## recent tasks
 
-- [ ] learn Spring Video on Youtube channel  [springDeveloper](https://www.youtube.com/channel/UC7yfnfvEUlXUIfm8rGLwZdA)
-- [ ] pull the job off on coding2017 assignment
+- [X] [SpringBeanDefinitionStoreException](/SpringBeanDefinitionStoreException/README.md)
+- [X] [PropertieswithSpringandSpringBoot](/SpringBeanDefinitionStoreException/README.md)
 - [ ] translate good blogs 
