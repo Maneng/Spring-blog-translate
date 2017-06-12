@@ -12,7 +12,7 @@
 
 **BeanDefinitionStoreException**可能是由底层**IOException**引起的多种可能的原因：
 
-1.从**ServletContext**资源解析XML文档的**IOException**
+### 2.1从**ServletContext**资源解析XML文档的**IOException**
 
 这通常发生在Spring Web应用程序中，当在Spring MVC的web.xml中设置DispatcherServlet时：
 
@@ -48,7 +48,7 @@
 </beans>
 ```
 
-2. IOException parsing XML document from class path resource
+### 2.2 IOException parsing XML document from class path resource
 
 这通常发生在应用程序中的某些内容指向不存在的XML资源，或者不在其中应用的位置。
 指向这样的资源可能以各种方式发生,我们可以用java Configuration这样来创建一个：
@@ -84,7 +84,7 @@ Could not open ServletContext resource [/beans.xml]
 这样，该文件将存在于类路径中，并将在Spring中找到并使用
 
 
-## **2.Cause: Could not resolve placeholder …**
+## **3.Cause: Could not resolve placeholder …**
 
 当Spring尝试解析属性但是由于许多可能的原因之一时并不能解析时，会发生此错误。
 我们可能会在XML中这样使用属性：
@@ -110,3 +110,104 @@ some.property=someValue
 然后，我们需要检查在Spring中定义属性文件的位置.
 这在我的属性与Spring教程中有详细描述。
 最好的做法是将所有属性文件放在应用程序的/ src / main / resources目录下，并通过以下方式加载它们：
+
+```$xslt
+"classpath:app.properties"
+```
+
+显而易见的.另一个可能的原因是Spring无法解析该属性是在Spring上下文中
+可能有多个`PropertyPlaceholderConfigurer bean`（或多个属性占位符元素）
+
+如果是这种情况，那么解决方案是将它们折叠成一个单一的解决方案，
+或者使用`ignoreUnresolvablePlaceholder`在父上下文中配置一个解决方案。
+
+
+## **4. Cause: java.lang.NoSuchMethodError…**
+
+这种错误有多种形式 - 其中一个常见的是：
+
+```$xslt
+
+org.springframework.beans.factory.BeanDefinitionStoreException:
+Unexpected exception parsing XML document from ServletContext resource [/WEB-INF/mvc-servlet.xml];
+nested exception is java.lang.NoSuchMethodError:
+org.springframework.beans.MutablePropertyValues.add (Ljava/lang/String;Ljava/lang/Object;)
+Lorg/springframework/beans/MutablePropertyValues;
+```
+
+通常会在类路径中有多个版本的Spring时发生。在项目类路径中不小心使用旧版本的Spring比常见的更常见
+ 我在Spring Security with Maven的文章中描述了问题和解决方案。
+简而言之，这个错误的解决方案很简单  检查类路径中的所有Spring jar，
+并确保它们都具有相同的版本 
+ 而且该版本是3.0或更高版本。
+ 
+ 
+ 同样，异常并不局限于`MutablePropertyValues bean `
+ 同一个版本不一致引起的同样的问题还有其他几个方面：
+ 
+ ```$xslt
+org.springframework.beans.factory.BeanDefinitionStoreException:
+Unexpected exception parsing XML document from class path resource [/WEB-INF/mvc-servlet.xml];
+- nested exception is java.lang.NoSuchMethodError:
+org.springframework.util.ReflectionUtils.makeAccessible(Ljava/lang/reflect/Constructor;)V
+
+```
+
+## **Cause: java.lang.NoClassDefFoundError …**
+
+与Maven和现有的Spring依赖关系类似的常见问题是：
+
+```$xslt
+org.springframework.beans.factory.BeanDefinitionStoreException:
+Unexpected exception parsing XML document from ServletContext resource [/WEB-INF/mvc-servlet.xml];
+nested exception is java.lang.NoClassDefFoundError: 
+org/springframework/transaction/interceptor/TransactionInterceptor
+```
+
+当在XML配置中配置事务功能时，会发生这种情况：
+
+```$xslt
+<tx:annotation-driven/>
+```
+
+NoClassDefFoundError意味着在类路径中不存在Spring事务支持（即`spring-tx`）。
+
+解决方案很简单 - 需要在`Maven pom`中定义`spring-tx`:
+
+```$xslt
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-tx</artifactId>
+    <version>4.1.0.RELEASE</version>
+</dependency>
+
+
+```
+
+
+当然这不限于事务功能 - 如果AOP丢失，也会抛出类似的错误：
+
+```$xslt
+Exception in thread "main" org.springframework.beans.factory.BeanDefinitionStoreException: 
+Unexpected exception parsing XML document from class path resource [/WEB-INF/mvc-servlet.xml]; 
+nested exception is java.lang.NoClassDefFoundError: 
+org/aopalliance/aop/Advice
+```
+
+现在需要的jar是：`spring-aop`（和隐含的`aopalliance`）
+
+```$xslt
+
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-aop</artifactId>
+    <version>4.1.0.RELEASE</version>
+</dependency>
+```
+
+## **6.Conclusion …**
+
+在本文末尾，我们应该有一个清晰的地图来浏览可能导致Bean定义存储异常的各种原因和问题，以及如何解决所有这些问题。
+
+在[Github](https://github.com/eugenp/tutorials/tree/master/spring-all)项目中可以找到一些这些例外示例的实现 
+这是一个基于Eclipse的项目，所以应该很容易导入和运行。
