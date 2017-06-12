@@ -2,6 +2,6 @@
 
 ## recent tasks
 
-- [X] [SpringBeanDefinitionStoreException](/SpringBeanDefinitionStoreException/README.md)
-- [X] [PropertieswithSpringandSpringBoot](/SpringBeanDefinitionStoreException/README.md)
+- [X] [SpringBeanDefinitionStoreException](blog/spring/spring-exception-tutorial/SpringBeanDefinitionStoreException/README.md)
+- [X] [PropertieswithSpringandSpringBoot](blog/spring/spring-exception-tutorial/SpringBeanDefinitionStoreException/README.md)
 - [ ] translate good blogs 
