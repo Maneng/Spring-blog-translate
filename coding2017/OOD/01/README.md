@@ -23,7 +23,7 @@ This is the course learn object oriented design
   
 ### 课堂笔记：
 五大原则：
-1. **[SRP](#SRP)**
+1. **[SRP](#sRP)**
 2. **[开闭原则 (OCP)](#OCP)**
 3. **[Liskov 替换原则 (LSP)](#LSP)**
 4. **[接口隔离原则 (ISP)](#ISP)**
