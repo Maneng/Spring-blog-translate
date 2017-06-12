@@ -58,7 +58,7 @@
 
 foo.properties文件应放在/ src / main / resources下，以便它在运行时在类路径上可用
 
-2.1 多个<property-placeholder>
+### 2.1 多个<property-placeholder>
 如果在Spring上下文中存在多个`<property-placeholder>`元素，则需要遵循以下几个最佳做法：
 
 - 需要指定order属性来修正Spring所处理的顺序
@@ -141,7 +141,7 @@ dataSource.setUrl(env.getProperty("jdbc.url"));
 env.getProperty("key.something")
 ```
 
-4.1 属性搜索优先级
+### 4.1 属性搜索优先级
 默认情况下，在Spring 4中，本地属性最后搜索环境属性源，包括属性文件。
 这里的一个简单的说法是，本地属性是通过基础`PropertiesLoaderSupport`类（setProperties，setLocation等）
 中的setter API手动/编程配置的属性。
@@ -170,7 +170,7 @@ env.getProperty("key.something")
 在我们进入更多高级配置选项的属性之前，我们花一些时间查看Spring Boot中的新属性支持。
 总的来说，与标准Spring相比，这种新的支持涉及的配置较少,这当然也是Boot的主要目标之一。
 
-5.1 `application.properties` - 默认属性文件
+### 5.1 `application.properties` - 默认属性文件
 
 引导应用是约定由于配置的，
 这意味着我们可以简单地在“`src / main / resources`”目录中放置一个“`application.properties`”文件
@@ -183,7 +183,7 @@ env.getProperty("key.something")
 java -jar app.jar --spring.config.location=classpath:/another-location.properties
 ```
 
-5.2 环境特定属性文件(Environment Specific Properties File)
+### 5.2 环境特定属性文件(Environment Specific Properties File)
 如果我们需要针对不同的环境，那么在Boot中有一个内置机制。
 我们可以在“`src / main / resources`”目录中简单地定义一个“`application-environment.properties`”文件，
 然后设置一个具有相同环境名称的Spring配置文件。
@@ -194,12 +194,12 @@ java -jar app.jar --spring.config.location=classpath:/another-location.propertie
 该`env`文件将被加载，并将优先于默认的属性文件。请注意，默认文件仍将被加载，
 只是当有属性冲突时，环境特定属性文件优先。
 
-5.3 测试特定属性文件
+### 5.3 测试特定属性文件
 当我们的应用程序被测试时，我们也可能需要使用不同的属性值。
 `Spring Boot`在测试运行期间通过查看我们的“`src / test / resources`”目录来处理这个问题。同样，默认属性仍然是正常注入的，
 但是如果存在冲突，那么这些属性将被覆盖。
 
-5.4 `@TestPropertySource`注释
+### 5.4 `@TestPropertySource`注释
 
 如果我们需要对测试属性进行更精细的控制，那么我们可以使用`@TestPropertySource`注释。
 
@@ -232,7 +232,7 @@ public class IntegrationTests {
 }
 ```
 
-5.5 分层属性
+### 5.5 分层属性
 如果我们将属性分组在一起，我们可以使用`@ConfigurationProperties`注释，
 将这些属性层次结构映射到Java对象图。
 ```
@@ -258,7 +258,7 @@ Spring Boot再次使用它的约定优于配置，自动映射属性名称及其
 如果您想深入了解配置属性，请查看深入的文章。[the in-depth article](http://www.baeldung.com/configuration-properties-in-spring-boot)
 
 
-5.6 YAML文件 
+### 5.6 YAML文件 
 
 还支持YAML文件。 所有相同的命名规则适用于特定于测试，环境特定和默认属性文件。
 唯一的区别是文件扩展名，并且对您的类路径上的SnakeYAML库的依赖。
@@ -283,7 +283,7 @@ secret: foo
 值得我们注意的是，YAML文件不支持`@PropertySource`注释，
 因此如果使用注释是必需的，它将限制我们使用属性文件。
 
-5.7 命令行参数的属性
+### 5.7 命令行参数的属性
 与使用文件相反，属性可以直接在命令行中传递：
 ```$xslt
 java -jar app.jar --property="value"
@@ -293,7 +293,7 @@ java -jar app.jar --property="value"
 java -Dproperty.name="value"-jar app.jar
 ```
 
-5.8 环境变量的属性
+### 5.8 环境变量的属性
 
 Spring Boot还将检测环境变量，将其视为属性：
 
@@ -302,7 +302,7 @@ export name=value
 java -jar app.jar
 ```
 
-5.9 随机的属性值
+### 5.9 随机的属性值
 如果我们不想要确定性属性值，则可以使用`RandomValuePropertySource`来随机分配属性值：
 
 ```$xslt
@@ -311,20 +311,20 @@ random.long=${random.long}
 random.uuid=${random.uuid}
 ```
 
-5.10 属性来源的其他类型
+### 5.10 属性来源的其他类型
 Spring Boot支持大量的属性来源，实现一个很好的排序，来明智的覆盖。想要深入可以深入官方文档。
 
 ---
 
 ## Behind the scenes
 
-6.1 在Spring3.1 之前
+### 6.1 在Spring3.1 之前
 Spring 3.1引入了使用注释定义属性源的方便选项，但在此之前，XML配置是必需的。
 
 在上下文中，`<context：property-placeholder>` XML元素自动注册一个新的`PropertyPlaceholderConfigurer bean`。为了向后兼容，
 Spring 3.1及更高版本中的XSD架构尚未升级到指向新的3.1 XSD版本。
 
-6.2 在Spring3.1 之后
+### 6.2 在Spring3.1 之后
 Spring 3.1起，XML `<context：property-placeholder>`将不再注册旧的PropertyPlaceholderConfigurer
 ，而是新引入的`PropertySourcesPlaceholderConfigurer`。这个替换类被创建为更灵活，
 更好地与新引入的`Environment`和`PropertySource`机制进行交互。
@@ -352,7 +352,7 @@ Spring 3.1起，XML `<context：property-placeholder>`将不再注册旧的Prope
 
 ```
 
-7.2. XML configuration
+### 7.2. XML configuration
 ```
 <bean
   class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -372,7 +372,7 @@ Spring 3.1起，XML `<context：property-placeholder>`将不再注册旧的Prope
 
 类似地，在Spring 3.1中，还可以手动配置新的`PropertySourcesPlaceholderConfigurer`：
 
-8.1. Java configuration
+### 8.1. Java configuration
 
 ```$xslt
 @Bean
@@ -389,7 +389,7 @@ public static PropertySourcesPlaceholderConfigurer properties(){
 
 ```
 
-8.2. XML configuration
+### 8.2. XML configuration
 
 ```$xslt
 
@@ -413,7 +413,7 @@ public static PropertySourcesPlaceholderConfigurer properties(){
 定义属性文件并将它们包含在这些上下文中的最佳方式是什么？
 还有什么 - 如何从Spring最好地检索这些属性？这是简单的分解。
 
-9.1. 如果属性文件在XML中使用`<property-placeholder>`定义
+### 9.1. 如果属性文件在XML中使用`<property-placeholder>`定义
 
 如果文件在父上下文中定义：
 - @Value在Child context中工作：NO
@@ -426,7 +426,7 @@ public static PropertySourcesPlaceholderConfigurer properties(){
 最后，如前所述，<property-placeholder>不会将属性暴露给环境，所以：
 - environment.getProperty在任一上下文中使用：NO
 
-9.2。如果使用`@PropertySource`在Java中定义属性文件
+### 9.2。如果使用`@PropertySource`在Java中定义属性文件
 如果文件在父上下文中定义：
 - @Value在Child context中工作：YES
 - @Value works in Parent context: YES
@@ -441,7 +441,7 @@ public static PropertySourcesPlaceholderConfigurer properties(){
 
 
 ---
-## 1Conclusion 
+## Conclusion 
 
 本文介绍了在Spring中使用属性和属性文件的几个示例。
 一如以往，支持该文章的整个代码可以在[Github](https://github.com/eugenp/tutorials/tree/master/spring-all)上获得。
