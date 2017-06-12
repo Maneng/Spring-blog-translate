@@ -23,7 +23,7 @@ This is the course learn object oriented design
   
 ### 课堂笔记：
 五大原则：
-1. **[单一职责原则 （SRP）](#SRP)**
+1. **[单一职责原则 （SRP）](#单一职责原则-（SRP）)**
 2. **[开闭原则 (OCP)](#OCP)**
 3. **[Liskov 替换原则 (LSP)](#LSP)**
 4. **[接口隔离原则 (ISP)](#ISP)**
@@ -66,5 +66,5 @@ This is the course learn object oriented design
    * 可以用最小的代价去修改系统
    * 不用修改（或者很少的修改）现有代码就可以扩展
 
-
-### SRP
+---
+### 单一职责原则 （SRP）
