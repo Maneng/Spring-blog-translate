@@ -24,39 +24,39 @@
 
 
 ---
-## Overview
+## 1.Overview
 
 ---
-## Register in XML
-
-
----
-## Register in java annotations
+## 2.Register in XML
 
 
 ---
-## Use Inject properties
+## 3.Register in java annotations
 
 
 ---
-## Properties in springboot
+## 4.Use Inject properties
 
 
 ---
-## Behind the scenes
+## 5.Properties in springboot
 
 
 ---
-## Before spring3.1
+## 6.Behind the scenes
 
 
 ---
-## After spring3.1
+## 7.Before spring3.1
 
 
 ---
-## Parent child contexts
+## 8.After spring3.1
 
 
 ---
-## Conclusion 
+## 9.Parent child contexts
+
+
+---
+## 10.Conclusion 
