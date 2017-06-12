@@ -28,7 +28,7 @@ This is the course learn object oriented design
 3. **[Liskov 替换原则 (LSP)](#LSP)**
 4. **[接口隔离原则 (ISP)](#ISP)**
 5. **[依赖倒置原则 (DIP)）](#DIP)**
-6. **[Start Here](#start-here)**
+6. **[总结一下 summary](#summary)**
 
 1.面向对象的设计准则
   *  发现变化并且封装变化
@@ -69,8 +69,21 @@ This is the course learn object oriented design
 
 ---
 ### SRP
-fsdfds
 
----
-### Start Here
-fdsafas
+   * 职责： 是引起变化的原因
+        * 如果有多于一个的动机去改变一个类，这个类就具有多于一个职责
+        * 把多个职责耦合在一起，一个的变化可能会削弱或者抑制这个类完成其他职责的能力
+   * SRP ： 对一个类而言， 应该仅有一个引起它变化的原因。
+
+
+
+### SUMMARY
+
+   * 面向对象设计要求 职责转移
+       * 把职责划分到合适的类中去
+       * 把细节封装起来
+    
+   * 只对接口进行操作
+       * gotoNextClassroom() !
+
+
