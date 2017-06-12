@@ -4,7 +4,7 @@
 
 1. **[概述](#overview)**
 
-2. **[以XML格式注册属性文件](#register in xml)**
+2. **[以XML格式注册属性文件](#register-in-xml)**
 
 3. **[使用Java注释注册属性文件](#register in java annotations)**
 
