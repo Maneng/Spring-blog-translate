@@ -1,6 +1,6 @@
 # Spring和Spring Boot的属性
 
-## 目录
+##  目录
 
 1. **[概述](#overview)**
 
