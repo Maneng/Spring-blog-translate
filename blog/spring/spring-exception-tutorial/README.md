@@ -6,7 +6,7 @@
 - [X] [SpringBeanCreationException](/blog/spring/spring-exception-tutorial/SpringBeanException/SpringBeanCreationException.md)
 - [X] [SpringBeanDefinitionStoreException](/blog/spring/spring-exception-tutorial/SpringBeanException/SpringBeanDefinitionStoreException.md)
 - [X] [SpringNoSuchBeanDefinitionException](/blog/spring/spring-exception-tutorial/SpringBeanException/SpringNoSuchBeanDefinitionException.md)
-- [ ] translate good blogs 
+
 
 
 ### 2.Spring Data Exception
