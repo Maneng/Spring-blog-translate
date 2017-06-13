@@ -17,4 +17,4 @@
 
 ### 3.Spring Security Exceptions
 
-- [ ] [No bean named ‘springSecurityFilterChain’ is defined](/blog/spring/spring-exception-tutorial/SpringSecurityException/SpringSecurityExceptions.md)
+- [ ] [No bean named ‘springSecurityFilterChain’ is defined](/blog/spring/spring-exception-tutorial/SpringSecurityExceptions/SpringSecurityException.md)

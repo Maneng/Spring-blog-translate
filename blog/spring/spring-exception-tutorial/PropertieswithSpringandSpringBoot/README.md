@@ -205,7 +205,7 @@ java -jar app.jar --spring.config.location=classpath:/another-location.propertie
 
 这允许我们为特定的测试上下文设置测试属性，优先于默认的属性源：
 
-```$xslt
+``` java
 @ContextConfiguration
 @TestPropertySource("/my-test.properties")
 public class IntegrationTests {
@@ -215,7 +215,7 @@ public class IntegrationTests {
 
 如果我们不想使用文件，我们可以直接指定名称和值：
 
-```
+``` java
 @ContextConfiguration
 @TestPropertySource("foo=bar", "bar=foo")
 public class IntegrationTests {
@@ -225,7 +225,7 @@ public class IntegrationTests {
 我们也可以使用`@SpringBootTest`注释的`properties`参数来实现类似的效果:
 
 
-```$xslt
+``` java
 @SpringBootTest(properties = {"foo=bar", "bar=foo"})
 public class IntegrationTests {
     // tests
@@ -242,7 +242,7 @@ database.password=bar
 
 ```
 然后让我们使用注释将它们映射到数据库对象：
-```
+``` java
 @ConfigurationProperties(prefix = "database")
 public class Database {
     String url;
@@ -338,7 +338,7 @@ Spring 3.1起，XML `<context：property-placeholder>`将不再注册旧的Prope
 使用`PropertyPlaceholderConfigurer`可以让我们完全控制配置，而不必要的是更冗长和更多的时间。
 7.1 Java configuration
 
-```
+``` java
    @Bean
    public static PropertyPlaceholderConfigurer properties() {
      PropertyPlaceholderConfigurer ppc
