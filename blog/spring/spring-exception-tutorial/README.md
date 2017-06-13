@@ -11,10 +11,10 @@
 
 ### 2.Spring Data Exception
 
-- [ ] [Spring DataIntegrityViolationException](/blog/spring/spring-exception-tutorial/SpringDataException/SpringDataIntegrityViolationException.md)
-- [ ] [Guide to Spring NonTransientDataAccessException](/blog/spring/spring-exception-tutorial/SpringDataException/GuideToSpringNonTransientDataAccessException.md)
+- [X] [Spring DataIntegrityViolationException](/blog/spring/spring-exception-tutorial/SpringDataException/SpringDataIntegrityViolationException.md)
+- [X] [Guide to Spring NonTransientDataAccessException](/blog/spring/spring-exception-tutorial/SpringDataException/GuideToSpringNonTransientDataAccessException.md)
 
 
 ### 3.Spring Security Exceptions
 
-- [ ] [No bean named ‘springSecurityFilterChain’ is defined](/blog/spring/spring-exception-tutorial/SpringSecurityExceptions/SpringSecurityException.md)
+- [X] [No bean named ‘springSecurityFilterChain’ is defined](/blog/spring/spring-exception-tutorial/SpringSecurityExceptions/SpringSecurityException.md)
