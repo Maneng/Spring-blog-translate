@@ -37,7 +37,7 @@
   为了能够与Spring MVC一起使用，我们先来处理Maven依赖项：
   
 
-``` vbscript-html
+``` xml
   <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-webmvc</artifactId>
@@ -81,7 +81,7 @@ public class StudentControllerConfig implements WebApplicationInitializer {
 
 web.xml将如下所示：
 
-``` vbscript-html
+``` xml
 <servlet>
     <servlet-name>test-mvc</servlet-name>
     <servlet-class>
@@ -101,7 +101,7 @@ web.xml将如下所示：
 
 最后，我们设置DispatcherServlet并将其映射到特定的URL - 以完成我们的基于Front Controller的系统：
 
-``` gherkin
+``` xml
 <servlet-mapping>
     <servlet-name>test-mvc</servlet-name>
     <url-pattern>/test/*</url-pattern>
@@ -143,7 +143,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
 
 
-``` vbscript-html
+``` xml
 <context:component-scan base-package="com.baledung.controller" />
 <mvc:annotation-driven />
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -213,7 +213,7 @@ public class TestController {
 现在开始看一个RESTful控制器。当然，一个好的开始是我们需要的额外的Maven依赖关系：
 
 
-``` vbscript-html
+``` xml
 <dependencies>
     <dependency>
         <groupId>org.springframework</groupId>

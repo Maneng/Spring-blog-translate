@@ -20,7 +20,7 @@ DispatcherServlet使用HandlerAdapter来真正的调用该方法。
 
 为了使用Interceptor，您需要在pom.xml文件的依赖项部分中包含以下部分：
 
-``` vbscript-html
+``` xml-html
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-web</artifactId>

@@ -77,7 +77,7 @@ public class Application {
 ```
 这将打印来自applicationContext容器的所有bean：
 
-``` objectivec
+``` java
 fooController
 fooService
 //other beans
@@ -103,7 +103,7 @@ endpoints.beans.sensitive=false
 现在，我们只需点击URL `http：// <address>：<management-port> / springbeans`。如果没有指定任何单独的管理端口，我们可以使用我们的默认服务器端口。这将返回显示Spring IoC容器中所有Bean的JSON响应：
 
 
-``` clojure
+``` json
 [
     {
         "context": "application:8080",

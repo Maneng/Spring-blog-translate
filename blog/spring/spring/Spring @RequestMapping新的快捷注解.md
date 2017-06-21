@@ -50,7 +50,7 @@ public @interface GetMapping {
 
 请注意，由于我们将使用Maven构建项目和Spring MVC来创建我们的应用程序，所以我们需要在pom.xml中添加必要的依赖项：
 
-``` vbscript-html
+``` xml
 <dependency>
     <groupId>org.springframework</groupId>
     <artifactId>spring-webmvc</artifactId>

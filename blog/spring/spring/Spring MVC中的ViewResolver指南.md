@@ -47,7 +47,7 @@ public ViewResolver internalResourceViewResolver() {
 
 
 
-``` vbscript-html
+``` html
 <html>
     <head></head>
     <body>
@@ -92,7 +92,7 @@ public ViewResolver xmlViewResolver() {
 下面是配置文件，views.xml：
 
 
-``` nix
+``` xml
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.springframework.org/schema/beans

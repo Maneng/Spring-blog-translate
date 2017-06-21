@@ -12,7 +12,7 @@
 
 要从获得API，请将依赖关系添加到您的pom.xml文件中：
 
-``` vbscript-html
+``` xml
 <dependency>
     <groupId>javax.validation</groupId>
     <artifactId>validation-api</artifactId>

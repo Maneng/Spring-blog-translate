@@ -160,7 +160,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
 这里是相应的XML配置：
 
-``` vbscript-html
+``` xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:mvc="http://www.springframework.org/schema/mvc"

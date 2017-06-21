@@ -105,7 +105,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
 以下是使用Spring的XML配置的InternalViewResolver的示例路径配置：
 
-``` nix
+``` xml
 <property name="prefix" value="/jsp/"/>
 ```
 

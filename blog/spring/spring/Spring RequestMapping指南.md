@@ -193,7 +193,7 @@ public String getFoosBySimplePathWithPathVariable(
 
 请注意，@PathVariable受益于自动类型转换，因此我们也可以将该ID声明为：
 
-``` objectivec
+``` java
 @PathVariable long id
 ```
 

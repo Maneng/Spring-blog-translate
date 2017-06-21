@@ -112,13 +112,13 @@ public class AppConfig {
 ```
 或加载一个将包含所有其他配置的XML文件：
 
-``` vhdl
+``` java
 ApplicationContext context = new ClassPathXmlApplicationContext("spring-all.xml");
 ```
 
 在这个XML文件里面你可以包含：
 
-``` nix
+``` xml
 <import resource="main.xml"/>
 <import resource="scheduler.xml"/>
 ```
@@ -187,7 +187,7 @@ public class Person {
 ```
 现在，需要在XML配置中设置Person bean的名称，如下所示：
 
-``` nix
+``` xml
 <bean id="person" class="com.baeldung.Person">
     <property name="name" value="Joe" />
 </bean>
@@ -206,7 +206,7 @@ public class Person {
 它与@Autowired注释同时使用，以避免在存在多个bean类型的实例时出现混淆。
 我们来看一个例子。我们在XML配置中声明了两个类似的bean：
 
-``` nix
+``` xml
 <bean id="person1" class="com.baeldung.Person" >
     <property name="name" value="Joe" />
 </bean>
