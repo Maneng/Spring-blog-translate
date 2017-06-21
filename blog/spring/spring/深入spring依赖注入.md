@@ -1,5 +1,3 @@
-# How to Get All Spring-Managed Beans?
-
 
 # Intro to Inversion Control and Dependency Injection with Spring
 
@@ -135,7 +133,7 @@ public Store store() {
 
 我们也可以使用XML来进行相同的Bean配置：
 
-``` nimrod
+``` xml
 <bean id="store" class="org.baeldung.store.Store">
     <property name="item" ref="item1" />
 </bean>
@@ -193,13 +191,13 @@ public class Store {
 
 让我们通过XML配置按类型自动连接bean：
 
-``` nix
+``` xml
 <bean id="store" class="org.baeldung.store.Store" autowire="byType"> </bean>
 ```
 
 现在让我们通过XML将名为item的bean注入到store bean的item属性中：
 
-``` nix
+``` xml
 <bean id="item" class="org.baeldung.store.ItemImpl1" />
  
 <bean id="store" class="org.baeldung.store.Store" autowire="byName">
@@ -214,7 +212,7 @@ public class Store {
 
 默认情况下，容器在初始化期间创建并配置所有单例Bean。为了避免这种情况，您可以在bean配置中指定值为true的lazy-init属性：
 
-``` scala
+``` xml
 <bean id="item1" class="org.baeldung.store.ItemImpl1" lazy-init="true" />
 ```
 
