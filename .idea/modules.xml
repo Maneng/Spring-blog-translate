@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Personal-knowledge-Learn.iml" filepath="$PROJECT_DIR$/.idea/Personal-knowledge-Learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beginSpring/beginSpring-ch2/beginSpring-ch1.iml" filepath="$PROJECT_DIR$/beginSpring/beginSpring-ch2/beginSpring-ch1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beginSpring/cache/cache.iml" filepath="$PROJECT_DIR$/beginSpring/cache/cache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beginSpring/beginSpring-ch2/xml-based-autowiring/xml-based-autowiring.iml" filepath="$PROJECT_DIR$/beginSpring/beginSpring-ch2/xml-based-autowiring/xml-based-autowiring.iml" />
+    </modules>
+  </component>
+</project>
