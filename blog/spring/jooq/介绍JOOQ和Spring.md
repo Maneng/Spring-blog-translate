@@ -1,4 +1,28 @@
-[toc]
+# 介绍JOOQ和Spring
+
+
+- [**1. 概述**](#1-%E6%A6%82%E8%BF%B0)
+- [**2. Maven依赖关系**](#2-maven%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB)
+  - [2.1. jOOQ](#21-jooq)
+  - [2.2. Spring](#22-spring)
+  - [2.3. Database](#23-database)
+- [3.代码生成](#3%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90)
+  - [3.1.数据库结构](#31%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BB%93%E6%9E%84)
+  - [3.2.属性Maven插件](#32%E5%B1%9E%E6%80%A7maven%E6%8F%92%E4%BB%B6)
+  - [3.3. SQL Maven插件](#33-sql-maven%E6%8F%92%E4%BB%B6)
+  - [3.4. jOOQ Codegen插件](#34-jooq-codegen%E6%8F%92%E4%BB%B6)
+  - [3.5.生成代码](#35%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81)
+- [4. Spring Configuration](#4-spring-configuration)
+  - [4.1. Translating jOOQ Exceptions to Spring](#41-translating-jooq-exceptions-to-spring)
+  - [4.2. Configuring Spring](#42-configuring-spring)
+- [5. Using jOOQ with Spring](#5-using-jooq-with-spring)
+  - [5.1. Inserting Data](#51-inserting-data)
+  - [5.2. Updating Data](#52-updating-data)
+  - [5.3. Deleting Data](#53-deleting-data)
+- [6. 总结](#6-%E6%80%BB%E7%BB%93)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## **1. 概述**
 
 本文将介绍面向Java的面向对象的查询 - jOOQ - 和一个简单的方法来配合Spring框架。
