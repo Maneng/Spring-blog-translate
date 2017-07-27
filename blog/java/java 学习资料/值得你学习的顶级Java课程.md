@@ -1,5 +1,18 @@
+# 值得你学习的顶级Java课程
+**目录**  
 
-# **1. 概述**
+- [**1. 概述**](#1-%E6%A6%82%E8%BF%B0)
+- [**2. 5个优质的java学习网站**](#2-5%E4%B8%AA%E4%BC%98%E8%B4%A8%E7%9A%84java%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99)
+  - [1) Lynda Online Java Training Videos](#1-lynda-online-java-training-videos)
+  - [2) Learners TV Online Java Courses](#2-learners-tv-online-java-courses)
+  - [3) Wibit Online Java Courses](#3-wibit-online-java-courses)
+  - [4) Plural Sight Online Java Courses](#4-plural-sight-online-java-courses)
+  - [5) MIT OCW Online Java Programming Courses](#5-mit-ocw-online-java-programming-courses)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+## **1. 概述**
 
 对我来说，学习java一直都是敲击键盘。我仍然认为，最好的学习方法是自己编写程序。最好的部分是你所做的错误，要尽可能多的学习。
 
@@ -14,11 +27,11 @@
 当你自由时观看他们，并准备好在你上班的时候练习。
 
 
-# **2. 5个优质的java学习网站**
+## **2. 5个优质的java学习网站**
 
 
 
-## 1) [Lynda Online Java Training Videos](https://www.lynda.com/Java-training-tutorials/1077-0.html)
+### 1) [Lynda Online Java Training Videos](https://www.lynda.com/Java-training-tutorials/1077-0.html)
 
 这些在线Java课程解释了如何使用Java编程，具体如何使用JDBC来集成MySQL数据库。
 您可以学习高级类结构的Java代码提示，Reflection API，管理文件和目录等。
@@ -27,27 +40,27 @@
 
 
 
-## 2) [Learners TV Online Java Courses](http://www.learnerstv.com/Free-Computer-Science-Video-lectures-ltv006-Page1.htm)
+### 2) [Learners TV Online Java Courses](http://www.learnerstv.com/Free-Computer-Science-Video-lectures-ltv006-Page1.htm)
 
 他们有大量的java视频教程，用于各种主题。在线学习java的好地方
 
 ![](/img/Learners.png)
 
 
-## 3) [Wibit Online Java Courses](https://www.wibit.net/course/Java)
+### 3) [Wibit Online Java Courses](https://www.wibit.net/course/Java)
 
 Wibit也是通过视频完成在线Java课程的好资源。他们的网站界面也不错。一个整洁和氏族的地方。
 
 ![](/img/wibit.png)
 
-## 4) [Plural Sight Online Java Courses](https://www.pluralsight.com/search?q=java&categories=all)
+### 4) [Plural Sight Online Java Courses](https://www.pluralsight.com/search?q=java&categories=all)
 
 就像Learners Tv一样，他们在视频格式中收集了很多在线java课程。他们的一些内容是免费的，有些是付费的。浏览他们了解更多。
 
 ![](/img/plu.png)
 
 
-## 5) [MIT OCW Online Java Programming Courses](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-introduction-to-programming-in-java-january-iap-2010/lecture-notes/)
+### 5) [MIT OCW Online Java Programming Courses](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-092-introduction-to-programming-in-java-january-iap-2010/lecture-notes/)
 
 它没有Java视频教程并且包含PDF文件，
 但是这种材料被麻省理工学院本身使用的事实使它变得有趣。读出一些PDF，你永远不知道隐藏信息:-)

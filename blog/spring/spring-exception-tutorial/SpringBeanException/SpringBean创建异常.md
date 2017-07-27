@@ -1,5 +1,26 @@
 # Spring BeanCreationException
 
+**目录**  
+
+- [Spring BeanCreationException](#spring-beancreationexception)
+  - [**1.概述**](#1%E6%A6%82%E8%BF%B0)
+  - [**2.Cause: org.springframework.beans.factory.NoSuchBeanDefinitionException**](#2cause-orgspringframeworkbeansfactorynosuchbeandefinitionexception)
+  - [**3.Cause:org.springframework.beans.factory.NoUniqueBeanDefinitionException**](#3causeorgspringframeworkbeansfactorynouniquebeandefinitionexception)
+  - [**4. Cause: org.springframework.beans.BeanInstantiationException**](#4-cause-orgspringframeworkbeansbeaninstantiationexception)
+    - [4.1 自定义异常](#41-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8)
+    - [4.2 java.lang.InstantiationException](#42-javalanginstantiationexception)
+    - [4.3. java.lang.NoSuchMethodException](#43-javalangnosuchmethodexception)
+  - [**6.org.springframework.beans.NotWritablePropertyException**](#6orgspringframeworkbeansnotwritablepropertyexception)
+  - [**6.org.springframework.beans.CannotLoadBeanClassException**](#6orgspringframeworkbeanscannotloadbeanclassexception)
+  - [**7.org.springframework.beans.Children of BeanCreationException**](#7orgspringframeworkbeanschildren-of-beancreationexception)
+    - [7.1. The org.springframework.beans.factory.BeanCurrentlyInCreationException](#71-the-orgspringframeworkbeansfactorybeancurrentlyincreationexception)
+    - [7.2. The org.springframework.beans.factory.BeanIsAbstractException](#72-the-orgspringframeworkbeansfactorybeanisabstractexception)
+  - [**8.总结 …**](#8%E6%80%BB%E7%BB%93-)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 ## **1.概述**
 
 在这片文章中，我们会讨论关于Spring的异常：

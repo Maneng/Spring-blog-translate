@@ -1,5 +1,20 @@
-
 # Spring NoSuchBeanDefinitionException
+
+**目录**  
+
+- [Spring NoSuchBeanDefinitionException](#spring-nosuchbeandefinitionexception)
+  - [**1.概述**](#1%E6%A6%82%E8%BF%B0)
+  - [**2.Cause: No qualifying bean of type […] found for dependency**](#2cause-no-qualifying-bean-of-type--found-for-dependency)
+  - [**3.Cause:No qualifying bean of type […] is defined**](#3causeno-qualifying-bean-of-type--is-defined)
+  - [**4. Cause: No Bean Named […] is defined**](#4-cause-no-bean-named--is-defined)
+    - [4.1 自定义异常](#41-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8)
+  - [**5.Cause: Proxied Beans**](#5cause-proxied-beans)
+  - [**5.总结 …**](#5%E6%80%BB%E7%BB%93-)
+
+
+
+
+
 
 ## **1.概述**
 

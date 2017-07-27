@@ -1,5 +1,22 @@
 # Spring BeanDefinitionStoreException
 
+
+**目录**  
+
+- [Spring BeanDefinitionStoreException](#spring-beandefinitionstoreexception)
+  - [**1.概述**](#1%E6%A6%82%E8%BF%B0)
+  - [**2.Cause: java.io.FileNotFoundException**](#2cause-javaiofilenotfoundexception)
+    - [2.1从**ServletContext**资源解析XML文档的**IOException**](#21%E4%BB%8Eservletcontext%E8%B5%84%E6%BA%90%E8%A7%A3%E6%9E%90xml%E6%96%87%E6%A1%A3%E7%9A%84ioexception)
+    - [2.2 IOException parsing XML document from class path resource](#22-ioexception-parsing-xml-document-from-class-path-resource)
+  - [**3.Cause: Could not resolve placeholder …**](#3cause-could-not-resolve-placeholder-)
+  - [**4. Cause: java.lang.NoSuchMethodError…**](#4-cause-javalangnosuchmethoderror)
+  - [**Cause: java.lang.NoClassDefFoundError …**](#cause-javalangnoclassdeffounderror-)
+  - [**6.Conclusion …**](#6conclusion-)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 ## **1.概述**
 
 在这片文章中，我们会讨论关于Spring的异常：

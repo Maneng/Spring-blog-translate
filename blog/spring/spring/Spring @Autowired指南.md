@@ -1,5 +1,25 @@
 # How to Get All Spring-Managed Beans?
 
+**目录**  
+
+- [How to Get All Spring-Managed Beans?](#how-to-get-all-spring-managed-beans)
+  - [**1.Overview**](#1overview)
+  - [**2. Enabling @Autowired Annotations**](#2-enabling-autowired-annotations)
+  - [**3. Using @Autowired**](#3-using-autowired)
+    - [**3.1. @Autowired on Properties**](#31-autowired-on-properties)
+    - [**3.2. @Autowired on Setters**](#32-autowired-on-setters)
+    - [**3.3. @Autowired on Constructors**](#33-autowired-on-constructors)
+  - [**4. @Autowired and Optional Dependencies**](#4-autowired-and-optional-dependencies)
+  - [**5. Autowire Disambiguation**(5.自动消除歧义)](#5-autowire-disambiguation5%E8%87%AA%E5%8A%A8%E6%B6%88%E9%99%A4%E6%AD%A7%E4%B9%89)
+    - [**5.1. Autowiring by @Qualifier**](#51-autowiring-by-qualifier)
+    - [**5.2. Autowiring by Custom Qualifier** (自定义限定符自动装配)](#52-autowiring-by-custom-qualifier-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%99%90%E5%AE%9A%E7%AC%A6%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D)
+    - [**5.2. Autowiring by Name**](#52-autowiring-by-name)
+  - [**6. Conclusion**](#6-conclusion)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 
 ##  **1.Overview**
 
@@ -23,7 +43,7 @@ public class AppConfig {}
 注释注入启用后，可以在属性，设置器和构造函数上使用自动装配。
 
 
-## **3.1. @Autowired on Properties**
+### **3.1. @Autowired on Properties**
 
 注释可以直接用于属性，因此不需要getter和setter：
 
@@ -49,7 +69,7 @@ public class FooService {
 ```
 在上面的例子中，Spring创建FooService时，寻找并注入fooFormatter。
 
-## **3.2. @Autowired on Setters**
+### **3.2. @Autowired on Setters**
 
 @Autowired注释可以用于setter方法。在下面的示例中，当在setter方法上使用注释时，在创建FooService时，setter方法将使用FooFormatter的实例调用：
 
@@ -64,7 +84,7 @@ public class FooService {
     }
 }
 ```
-## **3.3. @Autowired on Constructors**
+### **3.3. @Autowired on Constructors**
 
 @Autowired注释也可以在构造函数上使用。在下面的示例中，当在构造函数上使用注释时，当创建FooService时，FooFormatter的实例将作为参数注入构造函数中：
 
@@ -107,7 +127,7 @@ public class FooService {
 
 默认情况下，Spring按类型解析@Autowired条目。如果同一类型的多个bean在容器中可用，则框架将抛出​​一个致命的异常，指示有多个bean可用于自动装配。
 
-## **5.1. Autowiring by @Qualifier**
+### **5.1. Autowiring by @Qualifier**
 
 @Qualifier注释可用于提示和缩小所需的bean：
 
@@ -160,7 +180,7 @@ public class FooService {
 通过使用具体实现的名称指定@Qualifier，在这种情况下，作为fooFormatter，当Spring找到同一类型的多个bean时，我们可以避免歧义。
 请注意，@Qualifier注释的值与我们的FooFormatter实现的@Component注释中声明的名称相匹配。 5.2。自定义限定符自动装配
 
-**5.2. Autowiring by Custom Qualifier** (自定义限定符自动装配)
+### **5.2. Autowiring by Custom Qualifier** (自定义限定符自动装配)
 
 Spring允许我们创建我们自己的@Qualifier注释。要创建自定义限定符，请定义注释，并在定义中提供@Qualifier注释，如下所示
 
@@ -219,7 +239,7 @@ public class FooService {
 ```
 @Target注释中指定的值限制限定词可用于标记注入点的位置。 在上面的代码片段中，限定符可以用于消除Spring可以将bean注入到字段，方法，类型和参数中的点。
 
-## **5.2. Autowiring by Name**
+### **5.2. Autowiring by Name**
 
 作为回馈，Spring使用bean名称作为默认限定符值。
 
@@ -233,5 +253,5 @@ public class FooService {
      
 }
 ```
-**6. Conclusion**
+## **6. Conclusion**
 虽然@Qualifier和bean名称的后备匹配都可以用来缩小到一个特定的bean，但是自动装配实际上是关于按类型注入的，这是最好的方式来使用这个容器功能。

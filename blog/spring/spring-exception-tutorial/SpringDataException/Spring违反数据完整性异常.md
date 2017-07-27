@@ -1,4 +1,24 @@
+
 # SpringDataIntegrityViolationException
+
+**目录**  
+
+- [SpringDataIntegrityViolationException](#springdataintegrityviolationexception)
+  - [**1.概述**](#1%E6%A6%82%E8%BF%B0)
+  - [**2.DataIntegrityViolationException and Spring Exception Translation**](#2dataintegrityviolationexception-and-spring-exception-translation)
+  - [**3.Where is DataIntegrityViolationException thrown**](#3where-is-dataintegrityviolationexception-thrown)
+    - [3.1. DataIntegrityViolationException with Hibernate](#31-dataintegrityviolationexception-with-hibernate)
+    - [3.2. DataIntegrityViolationException With JPA](#32-dataintegrityviolationexception-with-jpa)
+  - [**4. Cause: org.hibernate.exception.ConstraintViolationException**](#4-cause-orghibernateexceptionconstraintviolationexception)
+  - [**5.Cause: org.hibernate.PropertyValueException**](#5cause-orghibernatepropertyvalueexception)
+  - [**6.Cause: org.hibernate.exception.DataException**](#6cause-orghibernateexceptiondataexception)
+  - [**7.Cause: javax.persistence.EntityExistsException**](#7cause-javaxpersistenceentityexistsexception)
+  - [**8.Potentially DataIntegrityViolationException**](#8potentially-dataintegrityviolationexception)
+  - [**5.总结 …**](#5%E6%80%BB%E7%BB%93-)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
 
 ## **1.概述**
 

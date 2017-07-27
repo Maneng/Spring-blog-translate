@@ -1,5 +1,25 @@
-
 # Guide to Spring NonTransientDataAccessException
+
+**目录**  
+
+- [Guide to Spring NonTransientDataAccessException](#guide-to-spring-nontransientdataaccessexception)
+  - [**1.概述**](#1%E6%A6%82%E8%BF%B0)
+  - [**2.The Base Exception Class**](#2the-base-exception-class)
+  - [**3. DataIntegrityViolationException**](#3-dataintegrityviolationexception)
+    - [3.1. DuplicateKeyException](#31-duplicatekeyexception)
+  - [**4. DataRetrievalFailureException**](#4-dataretrievalfailureexception)
+    - [4.1 IncorrectResultSetColumnCountException](#41-incorrectresultsetcolumncountexception)
+    - [4.2 IncorrectResultSizeDataAccessException](#42-incorrectresultsizedataaccessexception)
+  - [**5. DataSourceLookupFailureException**](#5-datasourcelookupfailureexception)
+  - [**6. InvalidDataAccessResourceUsageException**](#6-invaliddataaccessresourceusageexception)
+    - [6.1 BadSqlGrammarException](#61-badsqlgrammarexception)
+  - [**7. CannotGetJdbcConnectionException**](#7-cannotgetjdbcconnectionexception)
+  - [**8. Conclusion**](#8-conclusion)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
 
 ## **1.概述**
 

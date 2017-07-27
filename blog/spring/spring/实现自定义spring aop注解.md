@@ -1,13 +1,28 @@
+# 怎么自定义Spring aop注解
+**目录**  
+
+- [怎么自定义Spring aop注解](#%E6%80%8E%E4%B9%88%E8%87%AA%E5%AE%9A%E4%B9%89spring-aop%E6%B3%A8%E8%A7%A3)
+  - [**1. Introduction**](#1-introduction)
+  - [**2. What is an AOP Annotation?**](#2-what-is-an-aop-annotation)
+  - [**3. Maven Dependency**](#3-maven-dependency)
+  - [**4. Creating our Custom Annotation**](#4-creating-our-custom-annotation)
+  - [**5. Creating our Aspect**](#5-creating-our-aspect)
+  - [**6. Creating our Pointcut and Advice**](#6-creating-our-pointcut-and-advice)
+  - [**7. Logging our Execution Time**](#7-logging-our-execution-time)
+  - [**8. Conclusion**](#8-conclusion)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-# **1. Introduction**
+
+## **1. Introduction**
 
 在本文中，我们将使用Spring中的AOP支持来实现自定义AOP注释。
 
 首先，我们将对AOP进行高级概述，说明它是什么以及它的优点。接下来，我们将逐步实施注释，逐步建立对AOP概念的更深入的了解。 结果将是对AOP的更好理解和将来创建我们的定制Spring注释的能力。
 
 
-# **2. What is an AOP Annotation?**
+## **2. What is an AOP Annotation?**
 
 要快速总结，AOP代表面向方面的编程。基本上，它是一种在不修改该代码的情况下向现有代码添加行为的方式。 有关AOP的详细介绍，有关于AOP切入点和建议的文章。本文假设我们已经有了基础知识
 
@@ -24,7 +39,7 @@ public void orderGoods(Order order) {
 
 有时，开发Spring应用程序的人可以将其看作是“弹性魔法”，而不必考虑如何运作。在现实中，发生的事情并不是特别复杂。但是，一旦我们完成了本文中的步骤，我们将能够创建自己的自定义注释，以了解和利用AOP。
 
-# **3. Maven Dependency**
+## **3. Maven Dependency**
 
 首先，我们添加我们的Maven依赖关系。 对于这个例子，我们将使用Spring Boot，因为它的配置方法的惯例让我们尽可能快地起床和运行：
 
@@ -47,7 +62,7 @@ public void orderGoods(Order order) {
 
 请注意，我们已经包括了AOP启动器，它引入了我们开始实现方面所需的库。
 
-# **4. Creating our Custom Annotation**
+## **4. Creating our Custom Annotation**
 
 我们要创建的注释是用于记录执行方法所需的时间量的注释。我们创建我们的注释：
 
@@ -66,7 +81,7 @@ public @interface LogExecutionTime {
 
 而@Retention只是说明注释是否在运行时可用于JVM。默认情况下不是这样，所以Spring AOP将无法看到注释。这就是为什么它被重新配置。
 
-# **5. Creating our Aspect**
+## **5. Creating our Aspect**
 
 现在我们有了我们的注释，我们来创建我们的方面。这只是封装我们交叉关切的模块，我们的方法是执行时间记录。它是一个类，用@Aspect注释：
 
@@ -78,7 +93,7 @@ public class ExampleAspect {
 }
 ```
 
-# **6. Creating our Pointcut and Advice**
+## **6. Creating our Pointcut and Advice**
 
 现在，我们来创建我们的切入点和建议。这将是一个注释的方法，它存在于我们的方面：
 
@@ -100,7 +115,7 @@ public Object logExecutionTime(ProceedingJoinPoint joinPoint) throws Throwable {
 最后，当我们的注释方法最终被调用时，会发生什么，我们的建议将被首先调用。那么由我们的建议决定下一步做什么。在我们的例子中，我们的建议是除了调用proceed（）之外什么也没做，只是调用原来的注释方法。
 
 
-# **7. Logging our Execution Time**
+## **7. Logging our Execution Time**
 
 现在我们有了我们的骨架，我们需要做的就是为我们的建议添加一些额外的逻辑。除了调用原始方法之外，这将记录执行时间。让我们再补充一点：
 
@@ -135,7 +150,7 @@ public void serve() throws InterruptedException {
 执行后，我们应该看到以下记录到控制台：
 > void org.baeldung.Service.serve() executed in 2030ms
 
-# **8. Conclusion**
+## **8. Conclusion**
 
 在本文中，我们利用Spring Boot AOP创建自定义注释，我们可以将其应用于Spring bean，以便在运行时向其注入额外的行为。
 

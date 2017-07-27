@@ -1,3 +1,22 @@
+# Spring @RequestMapping新的快捷注解
+
+**目录**  
+
+- [Spring @RequestMapping新的快捷注解](#spring-requestmapping%E6%96%B0%E7%9A%84%E5%BF%AB%E6%8D%B7%E6%B3%A8%E8%A7%A3)
+  - [**1. Overview**](#1-overview)
+  - [**2. New Annotations**](#2-new-annotations)
+  - [**3. How It Works**](#3-how-it-works)
+  - [**4. Implementation**](#4-implementation)
+    - [**4.1. @GetMapping**](#41-getmapping)
+    - [**4.2. @PostMapping**](#42-postmapping)
+    - [**4.3. @PutMapping**](#43-putmapping)
+    - [**4.4. @DeleteMapping**](#44-deletemapping)
+    - [**4.5. @PatchMapping**](#45-patchmapping)
+  - [**5. Testing the Application**](#5-testing-the-application)
+  - [**6. Conclusion**](#6-conclusion)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 
 ## **1. Overview**

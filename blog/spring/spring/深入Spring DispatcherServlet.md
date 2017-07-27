@@ -1,6 +1,22 @@
+# 深入Spring DispatcherServlet
+**目录**  
+
+- [深入Spring DispatcherServlet](#%E6%B7%B1%E5%85%A5spring-dispatcherservlet)
+  - [**1. Introduction**](#1-introduction)
+  - [**2. DispatcherServlet Request Processing**](#2-dispatcherservlet-request-processing)
+  - [**3. HandlerAdapter Interfaces**](#3-handleradapter-interfaces)
+    - [**3.1. Mappings**](#31-mappings)
+    - [**3.2. HTTP Request Handling**](#32-http-request-handling)
+    - [**3.3. The ViewResolver Interface**](#33-the-viewresolver-interface)
+    - [**3.6. The MultipartResolver Interface**](#36-the-multipartresolver-interface)
+    - [**3.7. The HandlerExceptionResolver Interface**](#37-the-handlerexceptionresolver-interface)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-#  **1. Introduction**
+
+
+##  **1. Introduction**
 
 简单地说，在前端控制器设计模式中，单个控制器负责将传入的HttpRequest引导到所有应用程序的其他控制器和处理程序。
 
@@ -8,7 +24,7 @@ Spring的DispatcherServlet实现了这种模式，因此负责正确地协调Htt
 
 在本文中，我们将检查Spring DispatcherServlet的请求处理工作流程以及如何实现参与此工作流程的多个接口。
 
-# **2. DispatcherServlet Request Processing**
+## **2. DispatcherServlet Request Processing**
 
 DispatcherServlet本质上处理传入的HttpRequest，委托请求，并根据在Spring应用程序中实现的配置的HandlerAdapter接口以及指定处理程序，控制器端点和响应对象的附注进行处理。
 
@@ -20,7 +36,7 @@ DispatcherServlet本质上处理传入的HttpRequest，委托请求，并根据�
 - 如果指定了MultipartResolver，则会为MultipartFiles检查该请求 - 任何找到的都包含在MultipartHttpServletRequest中以进一步处理
 - 在WebApplicationContext中声明的HandlerExceptionResolver实现在处理请求期间提取异常
 
-# **3. HandlerAdapter Interfaces**
+## **3. HandlerAdapter Interfaces**
 
 HandlerAdapter接口有助于通过几个特定接口使用控制器，servlet，HttpRequests和HTTP路径。 HandlerAdapter接口因此通过DispatcherServlet请求处理工作流程的许多阶段起着至关重要的作用
 
@@ -28,7 +44,7 @@ HandlerAdapter接口有助于通过几个特定接口使用控制器，servlet�
 
 在以下部分中，我们将更详细地探讨一些最重要和最常用的HandlerAdapter。
 
-## **3.1. Mappings**
+### **3.1. Mappings**
 
 要了解映射，我们需要先看看如何注释控制器，因为控制器对于HandlerMapping接口是至关重要的。
 
@@ -66,7 +82,7 @@ RL结构自然相对于DispatcherServlet本身，并由servlet映射确定。
 因此，除非非常有限的情况（如配置过滤器），否则不应使用'/ *'。
 
 
-## **3.2. HTTP Request Handling**
+### **3.2. HTTP Request Handling**
 
 DispatcherServlet的核心职责是将传入的HttpRequests发送到使用@Controller或@RestController注释指定的正确处理程序。
 
@@ -75,7 +91,7 @@ DispatcherServlet的核心职责是将传入的HttpRequests发送到使用@Contr
 在这里我们可以找到关于Spring控制器的更深入的写作。
 
 
-## **3.3. The ViewResolver Interface**
+### **3.3. The ViewResolver Interface**
 
 ViewResolver作为ApplicationContext对象上的配置设置附加到DispatcherServlet。 ViewResolver确定调度员提供什么样的视图以及从哪里提供的视图。
 
@@ -135,7 +151,7 @@ src -|
 
 视图的默认位置在WEB-INF中。在上面的代码段中为我们的InternalViewResolver指定的路径确定了您的视图可用的“src / main / webapp”的子目录。
 
-## **3.6. The MultipartResolver Interface**
+### **3.6. The MultipartResolver Interface**
 
 MultipartResolver实现检查多部分的请求，并将它们包装在MultipartHttpServletRequest中，以便在发现至少一个multipart的过程中进一步处理其他元素。添加到AppConfig：
 
@@ -183,7 +199,7 @@ public class MultipartController {
 ```
 
 
-## **3.7. The HandlerExceptionResolver Interface**
+### **3.7. The HandlerExceptionResolver Interface**
 
 Spring的HandlerExceptionResolver为整个Web应用程序，单个控制器或一组控制器提供统一的错误处理。
 

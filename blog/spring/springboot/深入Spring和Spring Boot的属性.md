@@ -1,26 +1,39 @@
+**目录**  
+
+- [Spring和Spring Boot的属性](#spring%E5%92%8Cspring-boot%E7%9A%84%E5%B1%9E%E6%80%A7)
+  - [Overview](#overview)
+  - [Register in XML](#register-in-xml)
+    - [2.1 多个<property-placeholder>](#21-%E5%A4%9A%E4%B8%AAproperty-placeholder)
+  - [Register in java annotations](#register-in-java-annotations)
+  - [Use Inject properties](#use-inject-properties)
+    - [4.1 属性搜索优先级](#41-%E5%B1%9E%E6%80%A7%E6%90%9C%E7%B4%A2%E4%BC%98%E5%85%88%E7%BA%A7)
+  - [Properties in springboot](#properties-in-springboot)
+    - [5.1 `application.properties` - 默认属性文件](#51-applicationproperties---%E9%BB%98%E8%AE%A4%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6)
+    - [5.2 环境特定属性文件(Environment Specific Properties File)](#52-%E7%8E%AF%E5%A2%83%E7%89%B9%E5%AE%9A%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6environment-specific-properties-file)
+    - [5.3 测试特定属性文件](#53-%E6%B5%8B%E8%AF%95%E7%89%B9%E5%AE%9A%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6)
+    - [5.4 `@TestPropertySource`注释](#54-testpropertysource%E6%B3%A8%E9%87%8A)
+    - [5.5 分层属性](#55-%E5%88%86%E5%B1%82%E5%B1%9E%E6%80%A7)
+    - [5.6 YAML文件](#56-yaml%E6%96%87%E4%BB%B6)
+    - [5.7 命令行参数的属性](#57-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E7%9A%84%E5%B1%9E%E6%80%A7)
+    - [5.8 环境变量的属性](#58-%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E7%9A%84%E5%B1%9E%E6%80%A7)
+    - [5.9 随机的属性值](#59-%E9%9A%8F%E6%9C%BA%E7%9A%84%E5%B1%9E%E6%80%A7%E5%80%BC)
+    - [5.10 属性来源的其他类型](#510-%E5%B1%9E%E6%80%A7%E6%9D%A5%E6%BA%90%E7%9A%84%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B)
+  - [Behind the scenes](#behind-the-scenes)
+    - [6.1 在Spring3.1 之前](#61-%E5%9C%A8spring31-%E4%B9%8B%E5%89%8D)
+    - [6.2 在Spring3.1 之后](#62-%E5%9C%A8spring31-%E4%B9%8B%E5%90%8E)
+  - [Before spring3.1](#before-spring31)
+    - [7.2. XML configuration](#72-xml-configuration)
+  - [After spring3.1](#after-spring31)
+    - [8.1. Java configuration](#81-java-configuration)
+    - [8.2. XML configuration](#82-xml-configuration)
+  - [Parent child contexts](#parent-child-contexts)
+    - [9.1. 如果属性文件在XML中使用`<property-placeholder>`定义](#91-%E5%A6%82%E6%9E%9C%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6%E5%9C%A8xml%E4%B8%AD%E4%BD%BF%E7%94%A8property-placeholder%E5%AE%9A%E4%B9%89)
+    - [9.2。如果使用`@PropertySource`在Java中定义属性文件](#92%E5%A6%82%E6%9E%9C%E4%BD%BF%E7%94%A8propertysource%E5%9C%A8java%E4%B8%AD%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%E6%96%87%E4%BB%B6)
+  - [Conclusion](#conclusion)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Spring和Spring Boot的属性
-
-##  目录
-
-1. **[概述](#overview)**
-
-2. **[以XML格式注册属性文件](#register-in-xml)**
-
-3. **[使用Java注释注册属性文件](#register-in-java-annotations)**
-
-4. **[使用注射属性](#use-Inject-properties)**
-
-5. **[springBoot中的属性](#properties-in-springboot )**
-
-6. **[spring config 在幕后的配置](#behind-the-scenes)**
-
-7. **[在Spring 3.1之前使用原生的Bean进行配置](#before-spring3.1)**
-
-8. **[在Spring 3.1之后使用原生的bean的配置](#after-spring3.1)**
-
-9. **[父子环境中的属性](#parent-child-contexts )**
-
-10. **[总结](#conclusion )**
 
 
 ---

@@ -1,3 +1,33 @@
+# Spring RequestMapping指南
+**目录**  
+
+- [Spring RequestMapping指南](#spring-requestmapping%E6%8C%87%E5%8D%97)
+  - [**1. Overview**](#1-overview)
+  - [**2. @RequestMapping Basics**](#2-requestmapping-basics)
+    - [**2.1. @RequestMapping – by Path**](#21-requestmapping--by-path)
+    - [**2.2. @RequestMapping – the HTTP Method**](#22-requestmapping--the-http-method)
+  - [**3. RequestMapping and HTTP Headers**](#3-requestmapping-and-http-headers)
+    - [**3.1. @RequestMapping with the headers Attribute**](#31-requestmapping-with-the-headers-attribute)
+    - [**3.2. @RequestMapping Consumes and Produces**](#32-requestmapping-consumes-and-produces)
+  - [**4. RequestMapping with Path Variables**](#4-requestmapping-with-path-variables)
+    - [**4.1. Single @PathVariable**](#41-single-pathvariable)
+    - [**4.2. Multiple @PathVariable**](#42-multiple-pathvariable)
+    - [**4.3. @PathVariable with RegEx**](#43-pathvariable-with-regex)
+  - [**5. RequestMapping with Request Parameters**](#5-requestmapping-with-request-parameters)
+  - [**6. RequestMapping Corner Cases**](#6-requestmapping-corner-cases)
+    - [**6.1. @RequestMapping – multiple paths mapped to the same controller method**](#61-requestmapping--multiple-paths-mapped-to-the-same-controller-method)
+    - [**6.2. @RequestMapping – multiple HTTP request methods to the same controller method**](#62-requestmapping--multiple-http-request-methods-to-the-same-controller-method)
+    - [**6.3. @RequestMapping – a fallback for all requests**](#63-requestmapping--a-fallback-for-all-requests)
+  - [**7. New Request Mapping Shortcuts**](#7-new-request-mapping-shortcuts)
+  - [**8. Spring Configuration**](#8-spring-configuration)
+  - [**9. Conclusion**](#9-conclusion)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+
+
+
+
 ## **1. Overview**
 
 

@@ -1,6 +1,27 @@
+# Spring MVC 自定义 Validation
+**目录**  
+
+- [Spring MVC 自定义 Validation](#spring-mvc-%E8%87%AA%E5%AE%9A%E4%B9%89-validation)
+  - [**1. Overview**](#1-overview)
+  - [**2. Setup**](#2-setup)
+  - [**3. Custom Validation**](#3-custom-validation)
+  - [**4. The New Annotation**](#4-the-new-annotation)
+  - [**5. Creating a Validator**](#5-creating-a-validator)
+  - [**6. Applying Validation Annotation**](#6-applying-validation-annotation)
+  - [**7. The View**](#7-the-view)
+  - [**8. Tests**](#8-tests)
+  - [**9. Custom Class Level Validation**](#9-custom-class-level-validation)
+    - [**9.1. Creating the Annotation**](#91-creating-the-annotation)
+    - [**9.2. Creating the Validator**](#92-creating-the-validator)
+    - [**9.3. Applying the Annotation**](#93-applying-the-annotation)
+    - [**9.4. Testing the Annotatio**](#94-testing-the-annotatio)
+  - [**10. Summary**](#10-summary)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-# **1. Overview**
+
+## **1. Overview**
 
 通常，当我们需要验证用户输入时，Spring MVC提供了标准的预定义验证器。
 
@@ -8,7 +29,7 @@
 
 在本文中，我们将这样做 - 我们将创建一个自定义验证器来验证具有电话号码字段的表单，然后显示多个字段的自定义验证器.
 
-# **2. Setup**
+## **2. Setup**
 
 要从获得API，请将依赖关系添加到您的pom.xml文件中：
 
@@ -25,13 +46,13 @@
 </dependency>
 ```
 
-# **3. Custom Validation**
+## **3. Custom Validation**
 
 创建自定义验证器需要我们自己的注释，并在我们的模型中使用它来强制验证规则。
 
 所以，我们来创建我们的自定义验证器 - 它检查电话号码。电话号码必须是数字超过8位，但不能超过11位数字
 
-# **4. The New Annotation**
+## **4. The New Annotation**
 
 让我们创建一个新的@interface来定义我们的注释：
 
@@ -50,7 +71,7 @@ public @interface ContactNumberConstraint {
 
 使用@Constraint注释，我们定义了要验证我们的字段的类，message（）是在用户界面中显示的错误消息，附加代码是符合Spring标准的大多数样板代码。
 
-# **5. Creating a Validator**
+## **5. Creating a Validator**
 
 现在让我们创建一个验证器类来强制验证规则：
 
@@ -79,7 +100,7 @@ ConstraintValidator定义用于验证给定对象的给定约束的逻辑。实�
 - 该对象必须解析为非参数类型
 - 对象的通用参数必须是无界通配符类型
 
-# **6. Applying Validation Annotation**
+## **6. Applying Validation Annotation**
 
 在我们的例子中，我们创建了一个简单的类，其中包含一个字段来应用验证规则。在这里，我们正在设置要验证的注释字段：
 
@@ -118,7 +139,7 @@ public class ValidatedPhoneController {
 
 我们定义了具有单个JSP页面的简单控制器，并使用submitForm方法来强制验证我们的电话号码。
 
-# **7. The View**
+## **7. The View**
 
 我们的视图是一个基本的JSP页面，其窗体具有单个字段。当用户提交表单时，该字段将被我们的自定义验证器验证，并重定向到同一页面，并显示验证成功或失败的消息：
 
@@ -134,7 +155,7 @@ public class ValidatedPhoneController {
 ```
 
 
-# **8. Tests**
+## **8. Tests**
 
 现在让我们测试我们的控制器，并检查它是否给我们适当的响应和视图：
 
@@ -170,14 +191,14 @@ public void
 
 
 
-# **9. Custom Class Level Validation**
+## **9. Custom Class Level Validation**
 
 也可以在类级别定义自定义验证注释，以验证该类的多个属性。
 
 这种情况的常见用例是验证类中的两个字段是否具有匹配值。
 
 
-## **9.1. Creating the Annotation**
+### **9.1. Creating the Annotation**
 
 我们添加一个名为FieldsValueMatch的新注释，可以稍后在类中应用。注释将具有两个参数field和fieldMatch，它们表示要比较的字段的名称：
 
@@ -203,7 +224,7 @@ public @interface FieldsValueMatch {
 
 我们可以看到我们的自定义注释还包含一个List子界面，用于在类上定义多个FieldsValueMatch注释。
 
-## **9.2. Creating the Validator**
+### **9.2. Creating the Validator**
 
 接下来，我们需要添加将包含实际验证逻辑的FieldsValueMatchValidator类：
 
@@ -240,7 +261,7 @@ public class FieldsValueMatchValidator
 isValid（）方法检索两个字段的值，并检查它们是否相等。
 
 
-## **9.3. Applying the Annotation**
+###  **9.3. Applying the Annotation**
 
 我们创建一个NewUserForm模型类，用于用户注册所需的数据，它具有两个电子邮件和密码属性，以及两个verifyEmail和verifyPassword属性，以重新输入两个值。
 
@@ -296,7 +317,7 @@ public class NewUserController {
 ```
 
 
-## **9.4. Testing the Annotatio**
+### **9.4. Testing the Annotatio**
 
 
 要验证我们的自定义类级别注释，让我们编写一个JUnit测试，它将匹配信息发送到/ user端点，然后验证响应是否包含错误：

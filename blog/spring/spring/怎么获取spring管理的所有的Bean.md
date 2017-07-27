@@ -1,10 +1,23 @@
+
 # How to Get All Spring-Managed Beans?
+**目录**  
+
+- [How to Get All Spring-Managed Beans?](#how-to-get-all-spring-managed-beans)
+  - [**1.概述**](#1%E6%A6%82%E8%BF%B0)
+  - [**2. The IoC Container**](#2-the-ioc-container)
+  - [**3. Using ListableBeanFactory Interface**](#3-using-listablebeanfactory-interface)
+  - [**4. Using Spring Boot Actuator**](#4-using-spring-boot-actuator)
+  - [**5. Conclusion**](#5-conclusion)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-# **1.概述**
+
+
+## **1.概述**
 在本文中，我们将探讨如何使用容器显示所有Spring管理的不同的bean。
 
-# **2. The IoC Container**
+## **2. The IoC Container**
 一个bean是Spring管理的应用程序的基础;所有的bean都与IOC容器一起居住，IOC容器负责管理其生命周期。
 
 我们可以通过两种方式获取此容器中所有bean的列表：
@@ -12,7 +25,7 @@
 - 使用ListableBeanFactory接口
 - 使用 Spring Boot Actuator
 
-# **3. Using ListableBeanFactory Interface**
+## **3. Using ListableBeanFactory Interface**
 ListableBeanFactory接口提供getBeanDefinitionNames（）方法，该方法返回此工厂中定义的所有bean的名称。
 该接口由预先加载其bean定义以枚举其所有bean实例的所有bean工厂实现。
 您可以在官方文档中找到所有已知子接口及其实现类的列表。
@@ -86,7 +99,7 @@ fooService
 
 
 
-# **4. Using Spring Boot Actuator**
+## **4. Using Spring Boot Actuator**
 
 Spring Boot Actuator功能提供端点，用于监视我们应用程序的统计信息。
 
@@ -136,5 +149,5 @@ endpoints.beans.sensitive=false
 ```
 当然，这也包含许多其他豆类，它们位于同一个spring容器中，但是为了清楚起见，我们在这里省略了它们。
 
-# **5. Conclusion**
+## **5. Conclusion**
 在本文中，我们学习了如何使用ListableBeanFactory界面和Spring Boot Actuator在Spring IoC容器中显示所有bean。
